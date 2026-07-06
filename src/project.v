@@ -46,7 +46,7 @@ module tt_um_LnL_SoC (
     .vssd1(minus),
 `endif
     .clkin(clk),
-    .rst(~rst_n_i),
+      .rst(!rst_n),
     .addr(addr_to_memio),
     .datain(data_to_cpu),
     .dataout(data_to_dev),
@@ -63,7 +63,7 @@ module tt_um_LnL_SoC (
     .vssd1(minus),
 `endif
     .clk(clk),
-    .rst(~rst_n_i),
+    .rst(!rst_n),
     .addr(addr_to_memio[4:0]),
     .dout(boot_to_cpu),
     .cs(en_to_boot),
@@ -74,7 +74,7 @@ module tt_um_LnL_SoC (
     .vccd1(plus),
     .vssd1(minus),
 `endif
-    .reset(~rst_n_i),
+    .reset(!rst_n),
     .clock_in(clk),
     .load(load_spi),
     .unload(unload_spi),
@@ -91,7 +91,7 @@ module tt_um_LnL_SoC (
     .vccd1(plus),
     .vssd1(minus),
 `endif
-    .rst(~rst_n_i),
+    .rst(!rst_n),
     .clkin(clk),
     .cs(en_to_timer),
     .divby(data_to_dev[2:0]),
@@ -102,7 +102,7 @@ module tt_um_LnL_SoC (
     .vccd1(plus),
     .vssd1(minus),
 `endif
-    .reset(~rst_n_i),
+    .reset(!rst_n),
     .clkin(clk),
     .cs(en_to_pwm),
     .uptime(data_to_dev[2:0]),
