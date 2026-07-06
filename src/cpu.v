@@ -23,7 +23,7 @@ module cpu (
   wire [7:0] d;
   wire rstT, clk, drzero, aczero;
 
-  assign clk = clkin | (~ir[15] & d[7] & t[3] & ir[0]);
+  //assign clk = clkin | (~ir[15] & d[7] & t[3] & ir[0]);
   assign en_out =   t[3] & d[7] & ir[10] & ir[15];
 
   assign dataout = (t[4] & d[5]) ? {4'h0, pc} : 16'hzzzz;
