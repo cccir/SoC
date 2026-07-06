@@ -46,13 +46,14 @@ module cpu (
   end
 
   // Converted to sync reset to avoid loop errors
-  always @(posedge clk) begin
-    if (rstT) begin
-      t <= 1;
-    end else begin
-      t <= t << 1;
-    end
-  end
+always @(posedge clkin or posedge rst) begin
+    if (rst)
+        t <= 11'b00000000001;
+    else if (rstT)
+        t <= 11'b00000000001;
+    else
+        t <= t << 1;
+end
 
   assign drzero = |dr;
   assign aczero = |ac;
