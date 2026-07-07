@@ -74,7 +74,7 @@ module tt_um_LnL_SoC (
     .vccd1(plus),
     .vssd1(minus),
 `endif
-    .reset(!rst_n),
+      .reset(~rst_n_i), 
     .clock_in(clk),
     .load(load_spi),
     .unload(unload_spi),
@@ -91,7 +91,7 @@ module tt_um_LnL_SoC (
     .vccd1(plus),
     .vssd1(minus),
 `endif
-    .rst(!rst_n),
+    .rst(~rst_n_i),
     .clkin(clk),
     .cs(en_to_timer),
     .divby(data_to_dev[2:0]),
